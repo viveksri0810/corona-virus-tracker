@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Corona Virus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body style="padding: 20px;">
+
+
+<!-- As a heading -->
+<nav class="navbar navbar-dark bg-secondary">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h3" style="font-size: 80px">Corona Virus Tracker</span>
+    </div>
+</nav>
+
+<p1>This application lists the current number of cases reported across the globe.</p1>
+
+<div class="row" style="padding: 25px;">
+
+    <div class="col-sm" style="padding: 5px;">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Total Confirmed</div>
+            <div class="card-body">
+                <p class="card-text" th:text="${summaryStats.totalConfirmed}"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm" style="padding: 5px;">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Total Deaths</div>
+            <div class="card-body">
+                <p class="card-text" th:text="${summaryStats.totalDeath}"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm" style="padding: 5px;">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-header">Total Active</div>
+            <div class="card-body">
+                <p class="card-text" th:text="${summaryStats.totalActiveCases}"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm" style="padding: 5px;">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">Total Recovered</div>
+            <div class="card-body">
+                <p class="card-text" th:text="${summaryStats.totalRecovered}"></p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="container-fluid">
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>Country_Region</th>
+            <th>Province_State</th>
+            <th>Last_Update</th>
+            <th>Confirmed</th>
+            <th>Deaths</th>
+            <th>Recovered</th>
+            <th>Active</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="model : ${modelStats}">
+            <td th:text="${model.country_Region}"></td>
+            <td th:text="${model.province_State}"></td>
+            <td th:text="${model.last_Update}"></td>
+            <td th:text="${model.confirmed}"></td>
+            <td th:text="${model.deaths}"></td>
+            <td th:text="${model.recovered}"></td>
+            <td th:text="${model.active}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+</html>
