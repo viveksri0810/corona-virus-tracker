@@ -3,7 +3,7 @@
 This application is build in Srping boot using thymeleaf, lombox library, appache commom csv. 
 
 
-For this application we are using data from below github accoun.  
+For this application i am using data from below github account.  
 
 project url : https://github.com/CSSEGISandData/COVID-19
 
